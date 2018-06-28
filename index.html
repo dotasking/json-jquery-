@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+        $(function () {
+        $("input").click(function(){
+               $.get('app.json', 
+        //获取json文件内容
+        function(json) {
+  var items = [];
+  var keyss = [];
+ //定义一个空的数组
+  $.each(json, function(index, a) {
+    items.push('<li  >' + a + '</li>');
+    keyss.push('<li  >' + index + '</li>');
+  });
+  //把 每个<li> 值 </li> 加入到数组最后一位啊
+ 
+  $("<ul>",{class:"right",html:items.join('')}).appendTo('body');
+  $("<ul>",{class:"left",html:keyss.join('')}).appendTo('body');
+  $("ul").toggleClass("ul1");
+
+  // 语法    $(content).appendTo(selector)
+  //把<ul> ,添加到dody尾部
+} 
+);
+        })
+        });
+    </script>
+</head>
+<body>
+  <div id="div3"></div>
+<div>　　
+<input type="button" value="submit" id="submitAB">
+</div>　
+<style>
+.right{
+  float: right;
+  margin-right: 30%
+}
+.left{
+  float:left;
+  margin-left: 40%
+}
+input{
+  position: absolute;
+
+}
+.ul1{
+  background: red
+}
+
+</style>
+</body>
+</html>
+
